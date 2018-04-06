@@ -1,0 +1,44 @@
+{
+    "title": "Emacs key bindings extra (rev 1)",
+    "rules": [
+        {
+            "description": "Emacs key bindings extra [control+keys] (rev 1)",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("y", ["control"], ["caps_lock", "option"]) %>,
+                    "to": <%= to([
+                        ["v", ["command"]]
+                    ]) %>,
+                    "conditions": [ <%= frontmost_application_unless("emacs_key_bindings_exception") %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("w", ["control"], ["caps_lock", "option"]) %>,
+                    "to": <%= to([
+                        ["x", ["command"]]
+                    ]) %>,
+                    "conditions": [ <%= frontmost_application_unless("emacs_key_bindings_exception") %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("k", ["control"], ["caps_lock", "option"]) %>,
+                    "to": <%= to([
+                        ["right_arrow", ["command", "shift"]],
+                        ["x", ["command"]]
+                    ]) %>,
+                    "conditions": [ <%= frontmost_application_unless("emacs_key_bindings_exception") %> ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("u", ["control"], ["caps_lock", "option"]) %>,
+                    "to": <%= to([
+                        ["left_arrow", ["command", "shift"]],
+                        ["delete_or_backspace"]
+                    ]) %>,
+                    "conditions": [ <%= frontmost_application_unless("emacs_key_bindings_exception") %> ]
+                }
+            ]
+        }
+    ]
+}
